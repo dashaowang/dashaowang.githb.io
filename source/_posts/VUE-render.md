@@ -105,7 +105,7 @@ createElement(
 
 ## 渲染原生 DOM
 
-```js
+```javascript
 let h = this.$createElement;
 
 render: h('span', {
@@ -141,6 +141,17 @@ render: h(
   },
   [h('span', '渲染自定义组件')]
 );
+```
+
+## 遇坑
+
+- 使用组件自带的 render 函数渲染的 ref 无法通过\$refs 获取，最后将组件的渲染函数重新赋值成功
+
+```js
+(h, params) => {
+  h = this.$createElement;
+  //自定义渲染
+};
 ```
 
 ## 参考链接
